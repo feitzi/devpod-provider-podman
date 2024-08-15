@@ -7,7 +7,9 @@ description: |-
 optionGroups:
   - options:
       - PODMAN_PATH
+      - PODMAN_HOST
       - INACTIVITY_TIMEOUT
+      - PODMAN_BUILDER
     name: "Advanced Options"
 options:
   INACTIVITY_TIMEOUT:
@@ -15,14 +17,21 @@ options:
   PODMAN_PATH:
     description: The path where to find the podman binary.
     default: podman
-    required: true
-    command: printf "%s" "${PODMAN_PATH:-}"
+  PODMAN_HOST:
+    global: true
+    description: The podman host to use.
+  PODMAN_BUILDER:
+    global: true
+    description: The podman builder to use.
 agent:
   containerInactivityTimeout: ${INACTIVITY_TIMEOUT}
   local: true
   docker:
     path: ${PODMAN_PATH}
+    builder: ${PODMAN_BUILDER}
     install: false
+    env:
+      PODMAN_HOST: ${PODMAN_HOST}
 exec:
   # tag::non-machine-provider[]
   init: |-

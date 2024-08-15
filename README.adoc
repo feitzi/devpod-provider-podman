@@ -7,13 +7,13 @@ A provider to launch link:https://devpod.sh[DevPod] workspaces on Podman.
 
 [source,shell]
 ----
-devpod provider add https://github.com/babeloff/devpod-provider-podman/blob/main/provider.yml
+devpod provider add babeloff/devpod-provider-podman
 ----
 
 == Reference
 
-.link:https://devpod.sh/docs/developing-providers/quickstart[Quick Start]
-.link:https://github.com/ThomasVitale/devpod-provider-podman[Forked Project]
+. link:https://devpod.sh/docs/developing-providers/quickstart[Quick Start]
+. link:https://github.com/ThomasVitale/devpod-provider-podman[Forked Project]
 
 == Operation
 

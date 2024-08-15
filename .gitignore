@@ -14,8 +14,9 @@
 # Dependency directories (remove the comment below to include it)
 # vendor/
 
-### VS Code ###
+### IDE ###
 .vscode/
+.idea/
 
 #############
 ### macOS ###
