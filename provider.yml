@@ -11,6 +11,7 @@ optionGroups:
       - INACTIVITY_TIMEOUT
       - PODMAN_BUILDER
     name: "Advanced Options"
+    defaultVisible: false
 options:
   INACTIVITY_TIMEOUT:
     description: "If defined, will automatically stop the container after the inactivity period. Examples: 10m, 1h"
