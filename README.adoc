@@ -1,0 +1,24 @@
+= DevPod Provider Podman
+
+A provider to launch link:https://devpod.sh[DevPod] workspaces on Podman.
+
+
+== Getting Started
+
+[source,shell]
+----
+devpod provider add https://github.com/babeloff/devpod-provider-podman/blob/main/provider.yml
+----
+
+== Reference
+
+.link:https://devpod.sh/docs/developing-providers/quickstart[Quick Start]
+.link:https://github.com/ThomasVitale/devpod-provider-podman[Forked Project]
+
+== Operation
+
+As this is a Non-Machine provider only the following commands are needed:
+[source,yaml]
+----
+include::provider.yml[tag=non-machine-provider]
+----

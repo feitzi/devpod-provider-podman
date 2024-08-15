@@ -1,7 +1,7 @@
 name: podman
 version: v0.0.1
-icon: https://github.com/ThomasVitale/devpod-provider-podman/blob/main/images/podman-logo-source.svg
-home: https://github.com/ThomasVitale/devpod-provider-podman
+icon: https://github.com/babeloff/devpod-provider-podman/blob/main/images/podman-logo-source.svg
+home: https://github.com/babeloff/devpod-provider-podman
 description: |-
   DevPod on Podman
 optionGroups:
@@ -15,6 +15,8 @@ options:
   PODMAN_PATH:
     description: The path where to find the podman binary.
     default: podman
+    required: true
+    command: printf "%s" "${PODMAN_PATH:-}"
 agent:
   containerInactivityTimeout: ${INACTIVITY_TIMEOUT}
   local: true
@@ -22,15 +24,16 @@ agent:
     path: ${PODMAN_PATH}
     install: false
 exec:
+  # tag::non-machine-provider[]
   init: |-
     # Check if Podman exists and is reachable
     ${PODMAN_PATH} ps >/dev/null 2>&1
     if [ $? -ne 0 ]; then
       >&2 echo "Seems like Podman is not reachable on your system."
       >&2 echo "Please make sure Podman is installed and running."
-      >&2 echo "You can verify if Podman is running correctly via '${DOCKER_PATH} ps'"
+      >&2 echo "You can verify if Podman is running correctly via '${PODMAN_PATH} ps'"
       exit 1
     fi
-
   command: |-
     "${DEVPOD}" helper sh -c "${COMMAND}"
+  # end::non-machine-provider[]
