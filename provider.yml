@@ -1,6 +1,6 @@
 name: podman
 version: v0.0.1
-icon: https://github.com/babeloff/devpod-provider-podman/blob/main/images/podman-logo-source.svg
+icon: https://raw.githubusercontent.com/babeloff/devpod-provider-podman/7e2cb0f953ff4f544633d463b6f3ba16e856c0d9/images/podman-logo-source.svg
 home: https://github.com/babeloff/devpod-provider-podman
 description: |-
   DevPod on Podman
