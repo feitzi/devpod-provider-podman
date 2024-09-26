@@ -41,7 +41,6 @@ agent:
 exec:
   # tag::exec-init[]
   init: |-
-    # Check if Podman exists and is reachable
     ${PODMAN_PATH} ps >/dev/null 2>&1
     if [ $? -ne 0 ]; then
       >&2 echo "There is an issue with Podman on your system."
@@ -50,6 +49,7 @@ exec:
       >&2 echo "On Windows or MacOS Podman needs a VM, '${PODMAN_PATH} machine info'."
       exit 1
     fi
+    echo "Podman exists and is reachable."
   # end::exec-init[]
   # tag::exec-command[]
   command: |-
