@@ -26,7 +26,7 @@ options:
     description: The podman builder to use.
 agent:
   local: true
-  path: $\{DEVPOD\}
+  path: ${DEVPOD}
   inactivityTimeout: ${INACTIVITY_TIMEOUT}
   containerInactivityTimeout: ${INACTIVITY_TIMEOUT}
 #  injectGitCredentials: ${INJECT_GIT_CREDENTIALS}
