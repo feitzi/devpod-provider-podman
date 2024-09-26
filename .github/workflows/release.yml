@@ -11,10 +11,12 @@ jobs:
     steps:
       - name: Check out code into the Go module directory
         uses: actions/checkout@v4
-      - name: Set up Go
-        uses: actions/setup-go@v5
-        with:
-          go-version: 1.21
+#      - name: Set up Go
+#        uses: actions/setup-go@v5
+#        with:
+#          go-version: 1.21
+#          cache-dependency-path: |
+#            .go-cache/go.sum
       - id: get_version
         run: |
           RELEASE_VERSION=$(echo $GITHUB_REF | sed -nE 's!refs/tags/!!p')
@@ -26,7 +28,7 @@ jobs:
         env:
           RELEASE_VERSION: ${{ steps.get_version.outputs.release_version }}
           GITHUB_OWNER: ${{ github.repository_owner }}
-      - name: Save release assets
+      - name: Release Specific Assets
         uses: softprops/action-gh-release@v2
         with:
           files: release/*
