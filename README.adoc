@@ -11,11 +11,6 @@ A provider to launch link:https://devpod.sh[DevPod] workspaces on Podman.
 devpod provider add babeloff/devpod-provider-podman
 ----
 
-== Reference
-
-. link:https://devpod.sh/docs/developing-providers/quickstart[Quick Start]
-. link:https://github.com/ThomasVitale/devpod-provider-podman[Forked Project]
-
 == Operation
 
 https://devpod.sh/docs/developing-providers/quickstart#how-devpod-interacts-with-a-provider
@@ -44,3 +39,9 @@ Optional command to check if options are defined correctly
 and the provider is ready to create environments.
 For example for this provider,
 `init` checks that Podman is installed and reachable locally.
+
+
+== Reference
+
+. link:https://devpod.sh/docs/developing-providers/quickstart[Quick Start]
+. link:https://github.com/ThomasVitale/devpod-provider-podman[Forked Project]
