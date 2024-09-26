@@ -44,9 +44,10 @@ exec:
     # Check if Podman exists and is reachable
     ${PODMAN_PATH} ps >/dev/null 2>&1
     if [ $? -ne 0 ]; then
-      >&2 echo "Seems like Podman is not reachable on your system."
-      >&2 echo "Please make sure Podman is installed and running."
-      >&2 echo "You can verify if Podman is running correctly via '${PODMAN_PATH} ps'"
+      >&2 echo "There is an issue with Podman on your system."
+      >&2 echo "Make sure Podman is installed and running."
+      >&2 echo "You can verify if Podman is running via '${PODMAN_PATH} ps'."
+      >&2 echo "On Windows or MacOS Podman needs a VM, '${PODMAN_PATH} machine info'."
       exit 1
     fi
   # end::exec-init[]
