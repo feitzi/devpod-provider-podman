@@ -25,8 +25,13 @@ options:
     global: true
     description: The podman builder to use.
 agent:
-  containerInactivityTimeout: ${INACTIVITY_TIMEOUT}
   local: true
+  path: $\{DEVPOD\}
+  inactivityTimeout: ${INACTIVITY_TIMEOUT}
+  containerInactivityTimeout: ${INACTIVITY_TIMEOUT}
+#  injectGitCredentials: ${INJECT_GIT_CREDENTIALS}
+#  injectDockerCredentials: ${INJECT_DOCKER_CREDENTIALS}
+  driver: docker
   docker:
     path: ${PODMAN_PATH}
     builder: ${PODMAN_BUILDER}
@@ -34,7 +39,7 @@ agent:
     env:
       PODMAN_HOST: ${PODMAN_HOST}
 exec:
-  # tag::non-machine-provider[]
+  # tag::exec-init[]
   init: |-
     # Check if Podman exists and is reachable
     ${PODMAN_PATH} ps >/dev/null 2>&1
@@ -44,6 +49,8 @@ exec:
       >&2 echo "You can verify if Podman is running correctly via '${PODMAN_PATH} ps'"
       exit 1
     fi
+  # end::exec-init[]
+  # tag::exec-command[]
   command: |-
-    "${DEVPOD}" helper sh -c "${COMMAND}"
-  # end::non-machine-provider[]
+    "${DEVPOD}" helper sh --command "${COMMAND}" --log-output plain
+  # end::exec-command[]

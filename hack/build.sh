@@ -27,4 +27,4 @@ fi
 mkdir -p "${PROVIDER_ROOT}/release"
 
 # generate provider.yaml
-cp provider.yml > "${PROVIDER_ROOT}/release/provider.yaml"
+cp hack/provider/provider.yml "${PROVIDER_ROOT}/release/provider.yaml"
