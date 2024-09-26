@@ -27,6 +27,6 @@ jobs:
           RELEASE_VERSION: ${{ steps.get_version.outputs.release_version }}
           GITHUB_OWNER: ${{ github.repository_owner }}
       - name: Save release assets
-        uses: softprops/action-gh-release@v1
+        uses: softprops/action-gh-release@v2
         with:
           files: release/*

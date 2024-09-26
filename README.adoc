@@ -40,6 +40,16 @@ and the provider is ready to create environments.
 For example for this provider,
 `init` checks that Podman is installed and reachable locally.
 
+== Releasing
+
+To release this project.
+Go to https://github.com/babeloff/devpod-provider-podman/releases
+and select a tag representing the release.
+The tag should use CalVer (`vYYYY-MM-PP`).
+In order to trigger the release job the tag must begin with `v`.
+If a release is a patch,
+it should not update the `YYYY-MM` portion even if patched and released on a different date.
+On the major release the PP should be `00`.
 
 == Reference
 
